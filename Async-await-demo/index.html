@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async await demo</title>
+</head>
+<body>
+
+<script>
+
+let askHolder = ()=> {
+
+return new Promise((resolve,reject)=>{
+
+    setTimeout(()=>{
+        document.write(`Which holder do you need?<br>`)
+        resolve(document.write(`Customer gave input of holder <br>`));
+    },4000);
+    
+
+})
+}
+
+async function makeIceCream(){
+
+document.write(`Took order <br> `);
+await new Promise(r => setTimeout(r, 2000));
+document.write(`Banana has been chopped<br>`);
+await new Promise(r => setTimeout(r, 2000));
+document.write(`Water/Ice has been added<br>`);
+await new Promise(r => setTimeout(r, 2000));
+document.write(`Forgot to ask the holder....cup or cone?<br>`);
+await new Promise(r => setTimeout(r, 2000));
+document.write(`Getting out of kitchen to ask the customer<br>`);
+await new Promise(r => setTimeout(r, 2000));
+await askHolder();
+document.write(`Customer input is taken<br>`);
+await new Promise(r => setTimeout(r, 2000));
+document.write(`Placed in holder and added toppings<br>`);
+await new Promise(r => setTimeout(r, 2000));
+document.write(`Ice cream is delivered!`);
+}
+
+
+makeIceCream()
+
+document.write(`Other works continued here<br>`);
+document.write(`Cleaning dishes<br>`);
+document.write(`Cleaning tables and recieving new orders<br>`);
+
+doSomething();
+async function doSomething(){
+await new Promise(r => setTimeout(r, 10000));
+}
+
+</script>
+    
+</body>
+</html>

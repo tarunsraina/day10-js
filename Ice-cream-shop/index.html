@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICE CREAM SHOP</title>
+</head>
+<body>
+    <center>
+
+        <h1> Demo of callback hell using setTimeout</h1>
+        <h2>Ice cream making process..</h2>
+        <br>
+        <h3>Please wait..</h3>
+        <br>
+    </center>
+    <script>
+
+
+let stocks = {
+    Fruits : ["Banana","grapes","strawberry","apple"],
+    liquids : ["ice","water"],
+    holder : ["cone","cup","stick"],
+    toppings : ["chocolates","peanuts"]
+
+};
+
+
+
+
+let order = (fruitIndex,call_production) => {
+    setTimeout(()=>{
+    document.write(`${stocks.Fruits[fruitIndex]} has been selected  <br> `);
+    //console.log("Order is placed..calling production");
+    call_production();
+    },4000);
+}
+
+let production = () => {
+    //console.log("Order received , strting production");
+setTimeout(()=>{
+    document.write(`production has started <br> `);
+    
+    setTimeout(()=>{
+    document.write(`Fruit has been chopped  <br> `);
+
+        setTimeout(()=>{
+        document.write(`${stocks.liquids[0]} and ${stocks.liquids[1]} was added <br>  `);
+            setTimeout(()=>{
+            document.write(`Macchine is started <br>  `)
+            },1000);
+                setTimeout(()=>{
+                    document.write(`Icecream placed on ${stocks.holder[0]} <br>  `);
+                    setTimeout(()=>{
+                        document.write(`${stocks.toppings[0]} is selected as toppings <br>  `);
+
+                        setTimeout(()=>{
+                            document.write("Ice cream is served :)")
+                        },2000);
+                    },2000);
+                },2000);          
+        },1000);
+    },2000);
+},0000);
+};
+
+order(0,production);
+
+    </script>
+</body>
+</html>
